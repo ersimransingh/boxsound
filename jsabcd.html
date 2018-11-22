@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <style>
+    .box{
+        width:40px;
+        height:40px;
+        background:#333;
+        display: inline-block;
+        margin:5px;
+    }
+    </style>
+</head>
+<body>
+    <audio class="player">
+        <source src="sound.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio class="player_end">
+        <source src="soundend.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+    for(var i=1;i<=300;i++){
+        document.write('<div class="box"></div>');
+    }
+    $(function(){
+        $('.box').click(function(){
+            
+            var check_bg = $(this).css('background-color');
+            if(check_bg=='rgb(204, 204, 204)'){
+                $('.player_end').trigger('play');
+                $(this).css('background','#333');
+            }else{
+                $('.player').trigger('play');
+                $(this).css('background','#ccc');
+                
+            }
+            
+        });
+    });
+    </script>
+</body>
+</html>
